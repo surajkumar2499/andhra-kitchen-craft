@@ -33,41 +33,41 @@ export function Footer() {
         </div>
 
         <Column title="Shop">
-          <FLink to="/shop">All Products</FLink>
-          <FLink to="/shop" search={{ category: "pickles" }}>
+          <FLink className="transition-colors hover:text-cream" to="/shop">All Products</FLink>
+          <FLink className="transition-colors hover:text-cream" to="/shop" search={{ category: "pickles" }}>
             Pickles
           </FLink>
-          <FLink to="/shop" search={{ category: "snacks" }}>
+          <FLink className="transition-colors hover:text-cream" to="/shop" search={{ category: "snacks" }}>
             Snacks
           </FLink>
-          <FLink to="/shop" search={{ category: "podi" }}>
+          <FLink className="transition-colors hover:text-cream" to="/shop" search={{ category: "podi" }}>
             Podi &amp; Powders
           </FLink>
-          <FLink to="/shop" search={{ category: "dry-items" }}>
+          <FLink className="transition-colors hover:text-cream" to="/shop" search={{ category: "dry-items" }}>
             Dry Items
           </FLink>
         </Column>
 
         <Column title="About">
-          <FLink to="/story">Our Story</FLink>
-          <FLink to="/reviews">Reviews</FLink>
-          <FLink to="/contact">Contact Us</FLink>
-          <FLink to="/policies" hash="shipping">
+          <FLink className="transition-colors hover:text-cream" to="/story">Our Story</FLink>
+          <FLink className="transition-colors hover:text-cream" to="/reviews">Reviews</FLink>
+          <FLink className="transition-colors hover:text-cream" to="/contact">Contact Us</FLink>
+          <FLink className="transition-colors hover:text-cream" to="/policies" hash="shipping">
             Shipping Policy
           </FLink>
-          <FLink to="/policies" hash="returns">
+          <FLink className="transition-colors hover:text-cream" to="/policies" hash="returns">
             Returns &amp; Refunds
           </FLink>
         </Column>
 
         <Column title="Customer Care">
-          <FLink to="/policies" hash="privacy">
+          <FLink className="transition-colors hover:text-cream" to="/policies" hash="privacy">
             Privacy Policy
           </FLink>
-          <FLink to="/policies" hash="terms">
+          <FLink className="transition-colors hover:text-cream" to="/policies" hash="terms">
             Terms &amp; Conditions
           </FLink>
-          <FLink to="/policies" hash="faq">
+          <FLink className="transition-colors hover:text-cream" to="/policies" hash="faq">
             FAQ
           </FLink>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-cream">
@@ -103,6 +103,7 @@ function Column({ title, children }: { title: string; children: React.ReactNode 
   );
 }
 
-function FLink(props: React.ComponentProps<typeof Link>) {
-  return <Link {...props} className="transition-colors hover:text-cream" />;
-}
+type FLinkProps = { children: React.ReactNode; className?: string };
+const FLink = Link as unknown as (
+  props: FLinkProps & Record<string, unknown>,
+) => React.ReactElement;

@@ -77,7 +77,7 @@ const TABS = ["Description", "Ingredients", "Nutrition", "Shipping", "Reviews"] 
 
 function ProductPage() {
   const { product } = Route.useLoaderData();
-  const [weight, setWeight] = useState(product.weights[0]);
+  const [weight, setWeight] = useState(product.weights[0]!);
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState<(typeof TABS)[number]>("Description");
   const [activeImage, setActiveImage] = useState(0);

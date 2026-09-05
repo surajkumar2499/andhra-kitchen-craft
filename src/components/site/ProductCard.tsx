@@ -9,7 +9,7 @@ import { useWishlist } from "@/lib/wishlist";
 import { discountPct, formatINR, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
-  const [weight, setWeight] = useState(product.weights[0]);
+  const [weight, setWeight] = useState(product.weights[0]!);
   const { add } = useCart();
   const wishlist = useWishlist();
   const price = product.price * weight.multiplier;

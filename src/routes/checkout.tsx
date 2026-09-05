@@ -95,7 +95,7 @@ function Checkout() {
           e.preventDefault();
           const parsed = schema.safeParse(form);
           if (!parsed.success) {
-            toast.error(parsed.error.issues[0].message);
+            toast.error(parsed.error.issues[0]!.message);
             return;
           }
           const id = `AR${Date.now().toString().slice(-8)}`;
